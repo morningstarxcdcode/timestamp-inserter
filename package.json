@@ -1,0 +1,83 @@
+{
+  "name": "timestamp-inserter",
+  "displayName": "Timestamp Inserter",
+  "description": "A VS Code extension to quickly insert formatted timestamps or dates into the active editor.",
+  "version": "1.0.0",
+  "publisher": "your-publisher-name",
+  "engines": {
+    "vscode": "^1.60.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onCommand:extension.insertTimestamp"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "extension.insertTimestamp",
+        "title": "Insert Current Timestamp",
+        "category": "Timestamp Inserter"
+      }
+    ],
+    "configuration": {
+      "type": "object",
+      "title": "Timestamp Inserter Configuration",
+      "properties": {
+        "timestampInserter.format": {
+          "type": "string",
+          "default": "YYYY-MM-DD HH:mm:ss",
+          "description": "The format string for the timestamp. Use moment.js format tokens."
+        },
+        "timestampInserter.timezone": {
+          "type": "string",
+          "default": "local",
+          "enum": ["local", "UTC"],
+          "description": "Timezone to use for the timestamp."
+        },
+        "timestampInserter.copyToClipboard": {
+          "type": "boolean",
+          "default": false,
+          "description": "Copy the inserted timestamp to clipboard."
+        }
+      }
+    },
+    "keybindings": [
+      {
+        "command": "extension.insertTimestamp",
+        "key": "ctrl+alt+t",
+        "mac": "cmd+alt+t",
+        "when": "editorTextFocus"
+      }
+    ],
+    "menus": {
+      "editor/context": [
+        {
+          "command": "extension.insertTimestamp",
+          "when": "editorTextFocus",
+          "group": "navigation"
+        }
+      ]
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "test": "npm run compile && mocha --ui tdd --timeout 10000 ./out/test/**/*.js"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.60.0",
+    "@types/glob": "^7.1.3",
+    "@types/mocha": "^8.2.2",
+    "@types/node": "14.x",
+    "@types/assert": "^1.5.5",
+    "eslint": "^7.32.0",
+    "glob": "^7.1.6",
+    "mocha": "^8.4.0",
+    "typescript": "^4.4.3",
+    "vscode-test": "^1.6.2"
+  }
+}

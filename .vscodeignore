@@ -1,0 +1,11 @@
+.vscode/
+.vscode-test/
+src/
+tsconfig.json
+*.ts
+*.map
+*.md
+*.markdown
+.gitignore
+.vscodeignore
+README.md
