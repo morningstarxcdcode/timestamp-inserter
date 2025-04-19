@@ -1,5 +1,10 @@
+<<<<<<< HEAD
 const messages: { [lang: string]: { [key: string]: string } } = {
     en: {
+=======
+export function localize(key: string): string {
+    const messages: { [key: string]: string } = {
+>>>>>>> e8f278053f46b38b1d59a15b7ca49bb4ae9e7480
         noActiveEditor: "No active editor found.",
         selectFormat: "Select a timestamp format",
         selectTimezone: "Select a timezone",
@@ -9,6 +14,7 @@ const messages: { [lang: string]: { [key: string]: string } } = {
         insertedTimestamp: "Timestamp inserted",
         enterRelativeTime: "Enter relative time (e.g., 5 minutes ago, in 2 hours)",
         invalidRelativeTime: "Invalid relative time format"
+<<<<<<< HEAD
     },
     es: {
         noActiveEditor: "No se encontró un editor activo.",
@@ -33,4 +39,8 @@ export function setLanguage(lang: string) {
 
 export function localize(key: string): string {
     return messages[currentLanguage][key] || key;
+=======
+    };
+    return messages[key] || key;
+>>>>>>> e8f278053f46b38b1d59a15b7ca49bb4ae9e7480
 }
