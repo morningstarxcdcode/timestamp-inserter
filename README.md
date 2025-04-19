@@ -7,8 +7,8 @@ A powerful and beginner-friendly VS Code extension to quickly insert formatted t
 ## Features
 
 - Insert current timestamp or date at the cursor or replace selection.
-- Supports multiple timestamp formats: full datetime, date only, time only, ISO.
-- Configure your preferred timestamp format and timezone in settings.
+- Supports multiple timestamp formats: full datetime, date only, time only, ISO, Unix timestamp (seconds and milliseconds), RFC 2822, relative time.
+- Configure your preferred timestamp format and timezone in settings, including custom timezone support.
 - Supports multiple cursors and selections.
 - Optionally copy the inserted timestamp to clipboard.
 - Access via command palette, context menu, or keybinding (`Ctrl+Alt+T` / `Cmd+Alt+T`).

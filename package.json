@@ -34,7 +34,7 @@
         "timestampInserter.timezone": {
           "type": "string",
           "default": "local",
-          "enum": ["local", "UTC"],
+          "enum": ["local", "UTC", "Custom"],
           "description": "Timezone to use for the timestamp."
         },
         "timestampInserter.copyToClipboard": {
