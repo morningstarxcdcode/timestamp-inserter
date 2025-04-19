@@ -1,11 +1,11 @@
 {
   "name": "timestamp-inserter",
   "displayName": "Timestamp Inserter",
-  "description": "A VS Code extension to quickly insert formatted timestamps or dates into the active editor.",
+  "description": "A powerful and beginner-friendly VS Code extension to quickly insert formatted timestamps or dates into your active editor!",
   "version": "1.0.0",
-  "publisher": "your-publisher-name",
+  "publisher": "morningstarxcdcode",
   "engines": {
-    "vscode": "^1.60.0"
+    "vscode": "^1.50.0"
   },
   "categories": [
     "Other"
@@ -18,8 +18,22 @@
     "commands": [
       {
         "command": "extension.insertTimestamp",
-        "title": "Insert Current Timestamp",
-        "category": "Timestamp Inserter"
+        "title": "Insert Current Timestamp"
+      }
+    ],
+    "keybindings": [
+      {
+        "command": "extension.insertTimestamp",
+        "key": "cmd+alt+t",
+        "mac": "cmd+alt+t",
+        "when": "editorTextFocus"
+      },
+      {
+        "command": "extension.insertTimestamp",
+        "key": "ctrl+alt+t",
+        "win": "ctrl+alt+t",
+        "linux": "ctrl+alt+t",
+        "when": "editorTextFocus"
       }
     ],
     "configuration": {
@@ -29,55 +43,38 @@
         "timestampInserter.format": {
           "type": "string",
           "default": "YYYY-MM-DD HH:mm:ss",
-          "description": "The format string for the timestamp. Use moment.js format tokens."
+          "description": "Default timestamp format using moment.js tokens"
         },
         "timestampInserter.timezone": {
           "type": "string",
           "default": "local",
-          "enum": ["local", "UTC", "Custom"],
-          "description": "Timezone to use for the timestamp."
+          "description": "Timezone for timestamps (local, UTC, or custom)"
         },
         "timestampInserter.copyToClipboard": {
           "type": "boolean",
           "default": false,
-          "description": "Copy the inserted timestamp to clipboard."
+          "description": "Copy inserted timestamp to clipboard automatically"
+        },
+        "timestampInserter.language": {
+          "type": "string",
+          "default": "en",
+          "description": "Language for localization (e.g., 'en', 'es')"
         }
       }
-    },
-    "keybindings": [
-      {
-        "command": "extension.insertTimestamp",
-        "key": "ctrl+alt+t",
-        "mac": "cmd+alt+t",
-        "when": "editorTextFocus"
-      }
-    ],
-    "menus": {
-      "editor/context": [
-        {
-          "command": "extension.insertTimestamp",
-          "when": "editorTextFocus",
-          "group": "navigation"
-        }
-      ]
     }
   },
   "scripts": {
     "vscode:prepublish": "npm run compile",
     "compile": "tsc -p ./",
     "watch": "tsc -watch -p ./",
-    "test": "npm run compile && mocha --ui tdd --timeout 10000 ./out/test/**/*.js"
+    "test": "npm run compile && node ./out/test/runTest.js"
   },
   "devDependencies": {
-    "@types/vscode": "^1.60.0",
-    "@types/glob": "^7.1.3",
-    "@types/mocha": "^8.2.2",
-    "@types/node": "14.x",
-    "@types/assert": "^1.5.5",
-    "eslint": "^7.32.0",
-    "glob": "^7.1.6",
-    "mocha": "^8.4.0",
-    "typescript": "^4.4.3",
-    "vscode-test": "^1.6.2"
+    "@types/vscode": "^1.50.0",
+    "@types/mocha": "^8.0.0",
+    "@types/node": "^12.11.7",
+    "@types/moment": "^2.13.0",
+    "@vscode/test-electron": "^2.0.0",
+    "typescript": "^4.0.3"
   }
 }
