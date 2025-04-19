@@ -83,7 +83,7 @@ Want to contribute? Great! Here's how:
 
 ## License
 
-MIT License © 2024
+MIT License © 2025
 
 ---
 
